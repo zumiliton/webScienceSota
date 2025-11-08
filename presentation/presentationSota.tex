@@ -1,0 +1,104 @@
+\documentclass[10pt]{beamer}
+
+%--------------------------------
+% PAQUETES BÁSICOS
+%--------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+
+%--------------------------------
+% TEMA VISUAL
+%--------------------------------
+\usetheme{CambridgeUS} % Puedes probar: "Boadilla", "Berkeley", "Warsaw", "Copenhagen", "Singapore", etc.
+\usecolortheme{dolphin} % Cambia el esquema de color
+
+% Quita la barra de navegación inferior
+\setbeamertemplate{navigation symbols}{}
+
+% Título centrado
+\setbeamertemplate{frametitle}[default][center]
+
+%--------------------------------
+% DATOS DE LA PRESENTACIÓN
+%--------------------------------
+\title[Mi Presentación]{Título de la Presentación}
+\subtitle{Subtítulo o curso}
+\author{Tu Nombre}
+\institute{Universidad o institución}
+\date{\today}
+
+%--------------------------------
+% INICIO DEL DOCUMENTO
+%--------------------------------
+\begin{document}
+	
+	% PORTADA
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	% ÍNDICE
+	\begin{frame}
+		\frametitle{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	% SECCIÓN 1
+	\section{Introducción}
+	
+	\begin{frame}
+		\frametitle{Motivación}
+		\framesubtitle{¿Por qué este tema?}
+		\begin{itemize}
+			\item Punto clave 1
+			\item Punto clave 2
+			\item Punto clave 3
+		\end{itemize}
+	\end{frame}
+	
+	% SECCIÓN 2
+	\section{Metodología}
+	
+	\begin{frame}
+		\frametitle{Estructura del análisis}
+		\begin{block}{Objetivo general}
+			Explicar el proceso y la lógica detrás del modelo.
+		\end{block}
+		\begin{itemize}
+			\item Paso 1
+			\item Paso 2
+		\end{itemize}
+	\end{frame}
+	
+	% SECCIÓN 3
+	\section{Resultados}
+	
+	\begin{frame}
+		\frametitle{Resultados principales}
+		
+	\end{frame}
+	
+	% SECCIÓN 4
+	\section{Conclusiones}
+	
+	\begin{frame}
+		\frametitle{Conclusiones}
+		\begin{itemize}
+			\item Idea principal 1
+			\item Idea principal 2
+			\item Idea final inspiradora
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\centering
+		{\Huge ¡Gracias!}
+	\end{frame}
+	
+\end{document}
