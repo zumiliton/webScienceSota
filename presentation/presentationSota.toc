@@ -1,5 +1,5 @@
 \babel@toc {spanish}{}\relax 
-\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
-\beamer@sectionintoc {2}{Metodología}{4}{0}{2}
-\beamer@sectionintoc {3}{Resultados}{5}{0}{3}
-\beamer@sectionintoc {4}{Conclusiones}{6}{0}{4}
+\beamer@sectionintoc {1}{Sentiment Analysis in the Era of Large Language Models: A Reality Check}{3}{0}{1}
+\beamer@sectionintoc {2}{Artículo 2}{15}{0}{2}
+\beamer@sectionintoc {3}{Artículo 3}{15}{0}{3}
+\beamer@sectionintoc {4}{Conclusiones}{15}{0}{4}

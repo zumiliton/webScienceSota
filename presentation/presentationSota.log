@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.12)  8 NOV 2025 13:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.12)  13 NOV 2025 09:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,22 +944,171 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
- (./presentationSota.nav) [1
+ (./presentationSota.nav)
+Overfull \hbox (144.27571pt too wide) in paragraph at lines 39--39
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./presentationSota.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-) [2
+)
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
 
-] [3
+[2
 
-] [4
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
 
-] [5
+[3
 
-] [6
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
 
-] [7
+[4
+
+]
+<images/sensibility.jpg, id=77, 825.0825pt x 346.29375pt>
+File: images/sensibility.jpg Graphic file (type jpg)
+<use images/sensibility.jpg>
+Package pdftex.def Info: images/sensibility.jpg  used on input line 95.
+(pdftex.def)             Requested size: 275.36124pt x 115.57187pt.
+
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[5
+
+ <./images/sensibility.jpg>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
+ut line 111.
+
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+11.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[6
+
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[7
+
+]
+<images/fewShot.jpg, id=109, 902.37125pt x 286.06876pt>
+File: images/fewShot.jpg Graphic file (type jpg)
+<use images/fewShot.jpg>
+Package pdftex.def Info: images/fewShot.jpg  used on input line 140.
+(pdftex.def)             Requested size: 344.20024pt x 109.11757pt.
+
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[8
+
+ <./images/fewShot.jpg>]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[9
+
+]
+<images/typesSensi.jpg, id=126, 873.2625pt x 218.8175pt>
+File: images/typesSensi.jpg Graphic file (type jpg)
+<use images/typesSensi.jpg>
+Package pdftex.def Info: images/typesSensi.jpg  used on input line 172.
+(pdftex.def)             Requested size: 344.20024pt x 86.24664pt.
+
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[10
+
+ <./images/typesSensi.jpg>]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[11
+
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[12
+
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[13
+
+] (./presentationSota.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[14
+
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[15
+
+]
+Overfull \hbox (144.27571pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/5 ([])  
+ []
+
+[16
 
 ]
 \tf@nav=\write6
@@ -971,32 +1120,35 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@snm=\write8
 \openout8 = `presentationSota.snm'.
 
-
-(./presentationSota.aux
+ (./presentationSota.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `presentationSota.out' has not changed.
-(rerunfilecheck)             Checksum: 9B3705F46CE2FC2560DB9F27BE6B2A1D;403.
+(rerunfilecheck)             Checksum: C453FBAC4F6DE698A8AD946E32E6F9A8;732.
  ) 
 Here is how much of TeX's memory you used:
- 23875 strings out of 478287
- 464380 string characters out of 5849288
- 808583 words of memory out of 5000000
- 41578 multiletter control sequences out of 15000+600000
- 474947 words of font info for 36 fonts, out of 8000000 for 9000
+ 24120 strings out of 478287
+ 469746 string characters out of 5849288
+ 813889 words of memory out of 5000000
+ 41763 multiletter control sequences out of 15000+600000
+ 484752 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,396b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,15n,122p,483b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
-fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfss0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfss2488.pfb>
-Output written on presentationSota.pdf (7 pages, 69898 bytes).
+fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfsi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0500.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfsx0900.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on presentationSota.pdf (16 pages, 390750 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 263 PDF objects out of 1000 (max. 8388607)
+ 199 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

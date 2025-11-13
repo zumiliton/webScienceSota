@@ -27,10 +27,10 @@
 %--------------------------------
 % DATOS DE LA PRESENTACIÓN
 %--------------------------------
-\title[Mi Presentación]{Título de la Presentación}
-\subtitle{Subtítulo o curso}
-\author{Tu Nombre}
-\institute{Universidad o institución}
+\title[sotaWebScience]{LLMs y Sentimientos}
+\subtitle{Influencia de los LLMs en el Procesamiento y Análisis de Sentimientos}
+\author{Nadine Apellido, Manuel Garcés, Carlos Navarro, Marcos León}
+\institute{Universidad Politécnica de Madrid}
 \date{\today}
 
 %--------------------------------
@@ -50,39 +50,181 @@
 	\end{frame}
 	
 	% SECCIÓN 1
-	\section{Introducción}
+	\section{Sentiment Analysis in the Era of Large Language Models: A Reality Check}
+	\begin{frame}
+		\frametitle{Introducción}
+		\framesubtitle{Análisis de Sentimientos en la Era de los Grandes Modelos de Lenguaje (LLMs): Una Verificación de la Realidad}
+		\begin{itemize}
+			\item \textbf{Introducción al Análisis de Sentimientos (SA):} El SA es un área de investigación establecida en el procesamiento del lenguaje natural (NLP). Busca estudiar las opiniones, sentimientos y emociones de las personas a través de métodos computacionales.
+			\item \textbf{El Boom de los LLMs:} Los LLMs (como GPT-3.5/ChatGPT) han demostrado un rendimiento impresionante en varias tareas de NLP.
+			\item \textbf{Pregunta de Investigación:} ¿Hasta qué punto se pueden aprovechar los LLMs actuales para las diferentes tareas de SA? Este estudio busca una “verificación de la realidad” sobre el estado actual del SA con LLMs.
+		\end{itemize}
+	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Motivación}
-		\framesubtitle{¿Por qué este tema?}
+		\frametitle{Evaluación}
+		\framesubtitle{Alcance de la Evaluación: 13 Tareas, 26 Datasets y Comparación con SLMs}
 		\begin{itemize}
-			\item Punto clave 1
-			\item Punto clave 2
-			\item Punto clave 3
+			\item \textbf{Modelos Evaluados (LLMs):} Se consideraron modelos de código abierto (Flan-T5, Flan-UL2) y modelos de la serie GPT-3.5 (ChatGPT, InstructGPT/text-davinci-003).
+			\item \textbf{Modelos de Comparación (SLMs):} Se utilizaron modelos de lenguaje más pequeños (Small Language Models - SLMs) como T5 (versión large, 770M), entrenados con conjuntos de datos específicos del dominio (in-domain labeled data).
+			\item \textbf{Evaluación Integral:} La investigación cubrió 13 tareas distintas de SA en 26 conjuntos de datos.
+			\item \textbf{Categorías de Tareas de SA Investigadas:}
+			\begin{enumerate}
+				\item \textbf{Clasificación de Sentimientos (SC):} Clasificar la orientación sentimental de un texto (a nivel de documento, oración o aspecto).
+				\item \textbf{Análisis de Sentimientos Basado en Aspectos (ABSA):} Análisis de sentimientos y opiniones a un nivel de aspecto más detallado.
+				\item \textbf{Análisis Multifacético de Textos Subjetivos (MAST):} Tareas centradas en fenómenos subjetivos específicos (p. ej., detección de hate speech, ironía, reconocimiento de emociones).
+			\end{enumerate}
 		\end{itemize}
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Ilustración diferentes PROMPTs}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{images/sensibility.jpg}
+			\caption{Prompt examples for SC, ABSA, and MAST respectively.}
+		\end{figure}
+		
+		% Si quieres agregar otra imagen, puedes descomentar lo siguiente:
+		% \begin{figure}[htbp]
+			%     \centering
+			%     \includegraphics[width=0.6\textwidth]{ruta/de/otra/imagen.png}
+			%     \caption{Otra descripción.}
+			% \end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Hallazgo 1: Rendimiento Cero-Shot}
+		\framesubtitle{LLMs vs. SLMs: Brechas de Rendimiento en Configuración Cero-Shot (Zero-Shot)}
+		\begin{itemize}
+			\item \textbf{Tareas Simples (SC):} Los LLMs (como ChatGPT) muestran una fuerte capacidad de SA en configuraciones cero-shot. En algunas tareas SC, los LLMs pueden rendir a la par de los SLMs ajustados con el conjunto de entrenamiento completo.
+			\begin{itemize}
+				\item \textit{Ejemplo:} En promedio, el rendimiento de ChatGPT alcanzó el 97\% del rendimiento del modelo T5 ajustado en tareas SC.
+			\end{itemize}
+			\item \textbf{Tareas Complejas (ABSA y MAST):} Los LLMs aún están por detrás de los SLMs entrenados con datos específicos del dominio en tareas que requieren un conocimiento más profundo o información estructurada.
+			\begin{itemize}
+				\item \textit{Desafío ABSA:} Tareas como la Extracción Unificada de Sentimientos Basada en Aspectos (UABSA) o la Extracción de Tripletes (ASTE) requieren información de sentimiento estructurada y de grano fino. Modelos como \texttt{text-davinci-003} solo alcanzaron alrededor del 54\% del rendimiento de un modelo T5 ajustado en tareas ABSA.
+				\item \textit{Desafío MAST:} Los LLMs también van a la zaga en tareas MAST complejas, como el análisis de sentimiento implícito.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Hallazgo 2: Aprendizaje Few-Shot}
+		\framesubtitle{Ventaja Estratégica: LLMs Superan a SLMs en Escenarios Few-Shot}
+		\begin{itemize}
+			\item \textbf{Superioridad Consistente:} Los LLMs (con \textit{in-context learning}) superan consistentemente a los SLMs entrenados con la misma cantidad limitada de datos en todas las categorías de tareas (\textbf{SC}, \textbf{ABSA}, \textbf{MAST}) en configuraciones \textit{few-shot} (p. ej., 1-shot, 5-shot, 10-shot).
+			\item \textbf{Implicación Práctica:} Esto sugiere que la aplicación de LLMs es ventajosa cuando los recursos de anotación son escasos.
+			\item \textbf{La Brecha de Datos:} \texttt{ChatGPT} establece una base sólida que requiere que el modelo \texttt{T5} utilice casi cinco a diez veces más datos (p. ej., 50-shot o 100-shot) para lograr un rendimiento comparable en promedio.
+			\item \textbf{Impacto de la Complejidad del Prompt:} El beneficio incremental de añadir más ejemplos (\textit{shots}) es menos obvio para tareas \textbf{SC} más simples, pero aumenta considerablemente el rendimiento de los LLMs en tareas \textbf{ABSA} que exigen una comprensión más profunda y un formato de salida preciso.
+		\end{itemize}
+	\end{frame}
+	
+	
+		\begin{frame}
+		\frametitle{Resultados FEW-SHOT}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=1\textwidth]{images/fewShot.jpg}
+			\caption{Averaged few-shot results on all datasets for each task type with an increasing number of different shots.}
+		\end{figure}
+		
+		% Si quieres agregar otra imagen, puedes descomentar lo siguiente:
+		% \begin{figure}[htbp]
+			%     \centering
+			%     \includegraphics[width=0.6\textwidth]{ruta/de/otra/imagen.png}
+			%     \caption{Otra descripción.}
+			% \end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Desafio clave: Sensibilidad a Prompts}
+		\framesubtitle{Fragilidad de los LLMs: La Sensibilidad al Diseño del Prompt}
+		\begin{itemize}
+			\item \textbf{Variabilidad Observada:} El diseño de \textit{prompts} adecuados es fundamental. Los LLMs pueden producir respuestas muy diferentes incluso con \textit{prompts} semánticamente similares.
+			\item \textbf{Impacto de la Complejidad de la Tarea:}
+			\begin{itemize}
+				\item En tareas \textbf{SC} (clasificación simple), la elección del \textit{prompt} parece tener un efecto menor.
+				\item En tareas que requieren una salida estructurada y de grano fino (\textbf{ABSA}), el rendimiento puede variar significativamente (mayor sensibilidad) dependiendo del diseño del \textit{prompt}.
+				\item \textit{Detalle:} Se encontró que los modelos pueden ser sensibles a ciertas palabras, como \textit{analyze}, donde el modelo podría generar explicaciones largas a pesar de recibir instrucciones explícitas para no hacerlo.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+	\begin{frame}
+		\frametitle{Sensibilidad de PROMPTs}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=1\textwidth]{images/typesSensi.jpg}
+			\caption{Sensitivity of different prompt designs on three types of SA tasks.}
+		\end{figure}
+		
+		% Si quieres agregar otra imagen, puedes descomentar lo siguiente:
+		% \begin{figure}[htbp]
+			%     \centering
+			%     \includegraphics[width=0.6\textwidth]{ruta/de/otra/imagen.png}
+			%     \caption{Otra descripción.}
+			% \end{figure}
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Prompt Estructurado}
+		\framesubtitle{Ilustración de la Complejidad en Tareas ABSA}
+		\begin{block}{Ejemplo de Prompt para UABSA}
+			Para la tarea UABSA (Unified Aspect-Based Sentiment Analysis), un LLM podría recibir un prompt como:
+			
+			\textit{``Extrae los aspectos y clasifica el sentimiento de cada uno en el siguiente texto, proporcionando la salida en formato JSON estructurado con las claves 'aspect', 'sentiment' y 'evidence'."}
+		\end{block}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Limitaciones y Benchmark}
+		\framesubtitle{Limitaciones de la Evaluación Actual y el Nuevo Benchmark SENTIEVAL}
+		\begin{itemize}
+			\item \textbf{Deficiencias de las Prácticas de Evaluación Actuales:} Las evaluaciones a menudo se centran estrechamente en tareas o conjuntos de datos específicos, y utilizan \textit{prompts} inconsistentes entre estudios. Esto no logra capturar la amplitud total de las capacidades de \textbf{SA} de un \textbf{LLM}.
+			\item \textbf{Propuesta SENTIEVAL:} Los autores proponen un nuevo \textit{benchmark} llamado \texttt{SENTIEVAL} para una evaluación más integral y realista.
+			\begin{itemize}
+				\item \textit{Objetivo 1:} Romper la barrera entre las tareas individuales de \textbf{SA} para una evaluación más integral.
+				\item \textit{Objetivo 2:} Evaluar el modelo utilizando instrucciones de lenguaje natural presentadas en varios estilos. Esto imita el uso real donde los humanos interactúan con el modelo de diversas maneras.
+				\item \textit{Resultado:} \texttt{SENTIEVAL} requiere que el modelo comprenda diversos estilos de instrucciones y cumpla con formatos requeridos, un desafío donde \texttt{ChatGPT} demostró mayor robustez en comparación con \texttt{Flan-UL2}.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Conclusiones Clave}
+		\framesubtitle{Conclusiones Clave para la Adopción Práctica de LLMs en SA}
+		\begin{itemize}
+			\item \textbf{LLMs son Soluciones Viables para Tareas Simples:} Para clasificación binaria o trinaria simple, los LLMs pueden ser soluciones efectivas, incluso en modo cero-shot.
+			\item \textbf{Ventaja en Escasez de Datos:} Cuando los recursos de anotación son limitados, los LLMs son una buena opción debido a su rendimiento superior en el aprendizaje \textit{few-shot}.
+			\item \textbf{Precaución con Tareas Estructuradas:} Para tareas que requieren una salida estructurada de sentimientos (\textbf{ABSA}), los LLMs pueden no ser la mejor opción y su rendimiento puede variar significativamente con diferentes \textit{prompts}.
+			\item \textbf{Tamaño del Modelo vs. Instruction-Tuning:} Los modelos más grandes no siempre garantizan un rendimiento superior (p. ej., \texttt{Flan-UL2} fue comparable a la serie \texttt{GPT-3.5} en algunos casos). El uso de \textit{Instruction-Tuning} en modelos de tamaño razonable puede ser suficiente para aplicaciones prácticas de \textbf{SA}.
+		\end{itemize}
+		
+	\end{frame}
+	
+
+	
+	% ÍNDICE
+	\begin{frame}
+		\frametitle{Contenido}
+		\tableofcontents
 	\end{frame}
 	
 	% SECCIÓN 2
-	\section{Metodología}
+	\section{Artículo 2}
 	
-	\begin{frame}
-		\frametitle{Estructura del análisis}
-		\begin{block}{Objetivo general}
-			Explicar el proceso y la lógica detrás del modelo.
-		\end{block}
-		\begin{itemize}
-			\item Paso 1
-			\item Paso 2
-		\end{itemize}
-	\end{frame}
+	
 	
 	% SECCIÓN 3
-	\section{Resultados}
+	\section{Artículo 3}
 	
-	\begin{frame}
-		\frametitle{Resultados principales}
-		
-	\end{frame}
+
 	
 	% SECCIÓN 4
 	\section{Conclusiones}
@@ -96,9 +238,11 @@
 		\end{itemize}
 	\end{frame}
 	
+	
 	\begin{frame}
-		\centering
-		{\Huge ¡Gracias!}
+		\titlepage
 	\end{frame}
+	
+
 	
 \end{document}
