@@ -29,7 +29,7 @@
 %--------------------------------
 \title[sotaWebScience]{LLMs y Sentimientos}
 \subtitle{Influencia de los LLMs en el Procesamiento y Análisis de Sentimientos}
-\author{Nadine Apellido, Manuel Garcés, Carlos Navarro, Marcos León}
+\author{Nadine San Millan, Manuel Garcés, Carlos Navarro, Marcos León}
 \institute{Universidad Politécnica de Madrid}
 \date{\today}
 
@@ -42,12 +42,59 @@
 	\begin{frame}
 		\titlepage
 	\end{frame}
+
+    \AtBeginSection[]{
+      \begin{frame}
+        \frametitle{Contenido}
+        \tableofcontents[currentsection]
+      \end{frame}
+    }
+
 	
 	% ÍNDICE
 	\begin{frame}
 		\frametitle{Contenido}
 		\tableofcontents
 	\end{frame}
+    
+    \section{Contexto general}
+    \begin{frame}
+      \frametitle{Contexto general}
+      \framesubtitle{Por qué nos importa el Análisis de Sentimientos hoy}
+      \begin{itemize}
+        \item La cantidad de texto generado en \textbf{redes sociales}, reseñas, foros y medios digitales ha crecido de forma explosiva.
+        \item El \textbf{Sentiment Analysis (SA)} busca extraer opiniones, emociones y valoraciones a partir de ese texto.
+        \item Tiene aplicaciones directas en:
+        \begin{itemize}
+          \item \textbf{Marketing} y análisis de marca.
+          \item \textbf{Atención al cliente} y reputación online.
+          \item \textbf{Análisis político} y de opinión pública.
+        \end{itemize}
+        \item Tradicionalmente se han usado \textbf{modelos específicos por tarea y dominio} (por ejemplo, reseñas de hoteles, restaurantes, productos, etc.).
+      \end{itemize}
+    \end{frame}
+    
+    \section{Motivación}
+    \begin{frame}
+      \frametitle{LLMs y motivación del estudio}
+      \framesubtitle{¿Reemplazan los LLMs a los modelos especializados?}
+      \begin{itemize}
+        \item La aparición de los \textbf{Large Language Models (LLMs)} (GPT-3.5, GPT-4, PaLM, etc.) ha cambiado el panorama del NLP.
+        \item Estos modelos pueden resolver tareas de SA en modo:
+        \begin{itemize}
+          \item \textbf{Zero-shot} y \textbf{few-shot}, solo ajustando el \textbf{prompt}.
+          \item Sin necesidad de entrenar un modelo nuevo para cada dominio.
+        \end{itemize}
+        \item Sin embargo, surgen preguntas clave:
+        \begin{itemize}
+          \item ¿Rinden tan bien como los \textbf{modelos especializados} entrenados para SA/ABSA?
+          \item ¿Cómo afectan el \textbf{dominio}, la disponibilidad de \textbf{datos etiquetados} y el diseño del \textbf{prompt}?
+          \item ¿En qué escenarios compensa su \textbf{coste computacional}?
+        \end{itemize}
+        \item Esta presentación intenta responder a estas preguntas a partir de \textbf{tres artículos recientes} sobre LLMs y análisis de sentimientos.
+      \end{itemize}
+    \end{frame}
+    
 	
 	% SECCIÓN 1
 	\section{Sentiment Analysis in the Era of Large Language Models: A Reality Check}
@@ -82,7 +129,7 @@
 		\frametitle{Ilustración diferentes PROMPTs}
 		\begin{figure}[htbp]
 			\centering
-			\includegraphics[width=0.8\textwidth]{images/sensibility.jpg}
+			\includegraphics[width=0.95\textwidth]{sensibility.png}
 			\caption{Prompt examples for SC, ABSA, and MAST respectively.}
 		\end{figure}
 		
@@ -207,37 +254,200 @@
 		\end{itemize}
 		
 	\end{frame}
-	
 
-	
-	% ÍNDICE
-	\begin{frame}
-		\frametitle{Contenido}
-		\tableofcontents
-	\end{frame}
-	
+    
 	% SECCIÓN 2
 	\section{Artículo 2}
 	
 	
-	
 	% SECCIÓN 3
-	\section{Artículo 3}
+	\section{Comparative Analysis of Deep Natural Networks and Large Language Models for Aspect-Based Sentiment Analysis}
 	
-
-	
-	% SECCIÓN 4
-	\section{Conclusiones}
-	
-	\begin{frame}
-		\frametitle{Conclusiones}
+    \begin{frame}
+		\frametitle{Artículo 3: contexto y objetivo}
+		\framesubtitle{Comparative Analysis of Deep Neural Networks and LLMs for ABSA}
 		\begin{itemize}
-			\item Idea principal 1
-			\item Idea principal 2
-			\item Idea final inspiradora
+			\item El artículo se centra en el \textbf{Aspect-Based Sentiment Analysis (ABSA)}, que asocia opiniones a aspectos concretos de un texto (p. ej. \textit{food quality}, \textit{staff} en una reseña).
+			\item Distingue entre:
+			\begin{itemize}
+				\item \textbf{ATSA} (Aspect Term Sentiment Analysis): sentimiento sobre un término de aspecto explícito.
+				\item \textbf{ACSA} (Aspect Category Sentiment Analysis): sentimiento sobre una categoría \textit{Entidad\#Atributo}, que puede no aparecer literalmente.
+			\end{itemize}
+			\item Problemas detectados en el estado del arte:
+			\begin{itemize}
+				\item Fuerte \textbf{dependencia del dominio}.
+				\item Necesidad de gran cantidad de \textbf{datos etiquetados}.
+			\end{itemize}
+			\item Objetivo: comparar redes profundas “clásicas”, modelos ABSA basados en transformers y LLMs (PaLM, GPT-3.5) en distintas tareas de ABSA y dominios.
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+		\frametitle{Tareas de ABSA y preguntas de investigación}
+		\framesubtitle{ATSA, ACSA y generalización}
+		\begin{itemize}
+			\item \textbf{Tareas principales estudiadas:}
+			\begin{itemize}
+				\item \textbf{ATSA}: predecir la polaridad del sentimiento hacia un término de aspecto dado.
+				\item \textbf{ACSA}: predecir la polaridad de categorías como \textit{Food\#Quality}, \textit{Staff\#Service}, etc.
+			\end{itemize}
+			\item \textbf{Preguntas de investigación (simplificadas):}
+			\begin{itemize}
+				\item RQ1: ¿Cómo se generalizan los modelos ABSA clásicos (LSTM, BERT/DeBERTa) a \textbf{nuevos aspectos} o \textbf{nuevos dominios}?
+				\item RQ2: ¿Hasta qué punto los \textbf{LLMs} (GPT-3.5, PaLM) se generalizan sin entrenamiento específico?
+				\item RQ3: ¿Cómo se comparan en \textbf{rendimiento} y \textbf{coste} los LLMs frente a modelos entrenados específicamente para ABSA?
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+		\frametitle{Metodología}
+		\framesubtitle{Datasets y escenarios de evaluación}
+		\begin{itemize}
+			\item Se emplean varios conjuntos de datos anotados para ABSA, cubriendo distintos dominios:
+			\begin{itemize}
+				\item \textbf{SemEval 2016 Task 5}: restaurantes y portátiles.
+				\item \textbf{MAMS}: oraciones con múltiples aspectos y sentimientos distintos.
+				\item \textbf{Sentihood}: opiniones sobre barrios (aspectos como \textit{safety}, \textit{price}, \textit{nightlife}).
+				\item \textbf{YASO} y \textbf{DOTSA}: colecciones multi-dominio (libros, ropa, hoteles, etc.).
+			\end{itemize}
+			\item \textbf{Escenarios de evaluación:}
+			\begin{itemize}
+				\item \textbf{In-domain}: entreno y pruebo en el mismo dominio.
+				\item \textbf{Cross-domain}: entreno en un dominio y evalúo en otros para medir la \textbf{generalización}.
+			\end{itemize}
+			\item La comparación se basa en métricas estándar de clasificación: \textbf{accuracy} y \textbf{F1}.
 		\end{itemize}
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Modelos evaluados}
+		\framesubtitle{LSTM, transformers para ABSA y LLMs}
+		\begin{itemize}
+			\item \textbf{Modelos LSTM “clásicos” de ABSA:}
+			\begin{itemize}
+				\item AE-LSTM, AT-LSTM y ATAE-LSTM (con atención y embeddings de aspecto).
+			\end{itemize}
+			\item \textbf{Modelos ABSA basados en transformers (fine-tuned):}
+			\begin{itemize}
+				\item \textbf{DeBERTa-v3-base-ABSA}: entrenado con un gran conjunto de ejemplos de ABSA.
+				\item \textbf{flan-t5-large-ABSA}: modelo T5 ajustado para ABSA con datos generados y validados.
+			\end{itemize}
+			\item \textbf{LLMs genéricos sin entrenamiento específico:}
+			\begin{itemize}
+				\item \textbf{GPT-3.5-Turbo}.
+				\item \textbf{PaLM text-bison-001}.
+			\end{itemize}
+			\item Los LLMs se evalúan mediante \textbf{prompts estructurados}: se da la reseña, lista de aspectos/categorías y se pide la polaridad de cada uno.
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+        \frametitle{Metodología}
+        \framesubtitle{Evaluación de LLMs para subtareas de ABSA}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.9\textwidth]{fig_absa_methodology.png} % recorta la FIGURE 2 del paper
+            \caption{Metodología de evaluación de ABSA para subtareas.}
+        \end{figure}
+    \end{frame}
+
+    
+    
+    \begin{frame}
+		\frametitle{Resultados: límites de los LSTM}
+		\framesubtitle{Buen rendimiento local, mala transferencia}
+		\begin{itemize}
+			\item En \textbf{escenarios in-domain}, el mejor LSTM (ATAE-LSTM) supera a otros LSTM en accuracy y F1 para ATSA y ACSA.
+			\item Sin embargo, en \textbf{cross-domain} la generalización es pobre:
+			\begin{itemize}
+				\item Modelos entrenados en ropa o libros fallan al pasar a hoteles o restaurantes.
+				\item Solo hay buena transferencia entre dominios muy similares (p. ej. hotel \(\leftrightarrow\) restaurante).
+			\end{itemize}
+			\item Conclusión parcial:
+			\begin{itemize}
+				\item Los LSTM para ABSA siguen siendo \textbf{muy dependientes del dominio}.
+				\item Requieren \textbf{reentrenar} o ajustar modelos distintos para cada nuevo dominio.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+		\frametitle{Resultados: transformers ABSA}
+		\framesubtitle{DeBERTa-ABSA frente a LSTM}
+		\begin{itemize}
+			\item \textbf{DeBERTa-v3-ABSA} mejora claramente a los LSTM y a flan-t5-ABSA en la mayoría de datasets:
+			\begin{itemize}
+				\item Muy buen rendimiento en ATSA para hoteles y restaurantes.
+				\item Resultados sólidos en datasets multi-dominio como YASO o Sentihood.
+			\end{itemize}
+			\item No obstante, se observan \textbf{limitaciones}:
+			\begin{itemize}
+				\item Peor rendimiento en dominios poco representados (p. ej. libros, ropa en DOTSA).
+				\item Rendimiento más modesto en ACSA, donde hay que inferir categorías implícitas.
+			\end{itemize}
+			\item Mensaje: incluso los mejores modelos ABSA específicos siguen siendo \textbf{sensibles al dominio} y dependen de tener muchos ejemplos etiquetados.
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+		\frametitle{Resultados: LLMs (PaLM y GPT-3.5)}
+		\framesubtitle{Rendimiento sin entrenamiento específico}
+		\begin{itemize}
+			\item \textbf{PaLM} obtiene resultados muy competitivos en muchas tareas de ATSA y ACSA:
+			\begin{itemize}
+				\item En varios dominios iguala o supera a DeBERTa-ABSA.
+				\item Especialmente fuerte en hoteles, restaurantes y datasets multi-dominio.
+			\end{itemize}
+			\item \textbf{GPT-3.5} destaca en el dataset \textbf{MAMS}, más complejo (varios aspectos y polaridades por frase):
+			\begin{itemize}
+				\item Se aproxima al rendimiento de modelos especializados entrenados directamente en MAMS.
+			\end{itemize}
+			\item Implicación práctica:
+			\begin{itemize}
+				\item Los LLMs pueden ofrecer un \textbf{buen rendimiento zero-shot} en ABSA.
+				\item Reducen el coste de etiquetar datos y entrenar un modelo distinto por dominio.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+    \begin{frame}
+	\frametitle{Conclusiones del Artículo 3}
+	\framesubtitle{Comparative Analysis of DNNs and LLMs for ABSA}
+	\begin{itemize}
+		\item Para \textbf{tareas ABSA estándar} en dominios comunes, LLMs como PaLM o GPT-3.5 pueden alcanzar un rendimiento comparable al de los mejores modelos ABSA específicos, incluso sin entrenamiento adicional.
+		\item Cuando hay \textbf{muchos datos etiquetados} y el dominio está bien definido, modelos especializados como DeBERTa-ABSA siguen ofreciendo el \textbf{mejor rendimiento global}.
+		\item Los modelos basados en LSTM para ABSA muestran una \textbf{generalización cross-domain limitada}, funcionando bien solo en el dominio para el que han sido entrenados.
+		\item En escenarios con \textbf{múltiples dominios} o pocos datos anotados, los LLMs son especialmente atractivos, al ofrecer un buen compromiso entre rendimiento y coste de desarrollo (ajustando el \textbf{prompt} en lugar de reentrenar modelos).
+	\end{itemize}
+\end{frame}
+
+	% SECCIÓN 4
+	\section{Conclusiones}
+
+    \begin{frame}
+      \frametitle{Conclusiones}
+      \begin{itemize}
+        \item \textbf{Madurez del SA con LLMs:} Los LLMs ya son muy competitivos en tareas sencillas de clasificación de sentimiento (SC), pero siguen por detrás de modelos especializados en tareas más complejas y estructuradas como ABSA avanzado o MAST.
+        
+        \item \textbf{Modelos especializados vs.\ LLMs finos:} DeBERTa-ABSA y otros modelos entrenados específicamente en datasets estándar logran un rendimiento muy alto en dominios conocidos, mientras que un GPT-3.5 finamente ajustado puede incluso marcar nuevo estado del arte en ABSA, a costa de muchos más parámetros y mayor coste computacional.
+        
+        \item \textbf{Ventaja clave de los LLMs:} Frente a redes profundas “clásicas”, LLMs como PaLM, GPT-3.5 o GPT-4 destacan en escenarios \emph{zero-/few-shot} y en entornos con muchos dominios o pocos datos etiquetados, ofreciendo buen rendimiento sin necesidad de reentrenar modelos para cada caso.
+
+      \end{itemize}
+    \end{frame}
+
+    
+    \begin{frame}
+      \frametitle{Conclusiones}
+      \begin{itemize}
+
+        \item \textbf{Sensibilidad a \textit{prompts} y necesidad de nuevas métricas:} Los tres trabajos muestran que el rendimiento de los LLMs en SA/ABSA depende mucho del diseño del \textit{prompt} y de cómo se definen las reglas de anotación; además, benchmarks clásicos pueden infravalorar su capacidad, lo que motiva propuestas como SENTIEVAL y el análisis de errores más allá del F1.
+        
+        \item \textbf{Mensaje global:} En la práctica, ningún enfoque resulta claramente superior en todos los escenarios: los LLMs son una opción muy potente y flexible cuando hay pocos datos o muchos dominios, mientras que los modelos ABSA especializados (o LLMs finamente ajustados) siguen siendo preferibles cuando el dominio está bien definido, los requisitos de coste/latencia son estrictos y se necesita una salida muy estructurada y estable.
+      \end{itemize}
+    \end{frame}
+    
 	
 	\begin{frame}
 		\titlepage
