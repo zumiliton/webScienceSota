@@ -257,8 +257,146 @@
 
     
 	% SECCIÓN 2
-	\section{Artículo 2}
-	
+	\section{Large Language Models for Aspect-Based Sentiment Analysis}
+	\begin{frame}
+    \frametitle{Introducción}
+    \framesubtitle{Modelos GPT aplicados al Análisis de Sentimientos Basado en Aspectos (ABSA)}
+    \begin{itemize}
+        \item ABSA busca identificar aspectos específicos en un texto y clasificar su polaridad.
+        \item El artículo evalúa cómo GPT-3.5 y GPT-4 rinden en ABSA comparados con modelos especializados.
+        \item Se analizan tres configuraciones: \textbf{zero-shot}, \textbf{few-shot} y \textbf{fine-tuning}.
+        \item Pregunta clave: ¿qué funciona mejor, \textbf{prompt engineering} o \textbf{fine-tuning}?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metodología}
+    \framesubtitle{Dataset, modelos y tareas evaluadas}
+    \begin{itemize}
+        \item Dataset: \textbf{SemEval-2014 Task 4} (restaurantes y laptops).
+        \item Tareas:
+        \begin{itemize}
+            \item Extracción de términos de aspecto.
+            \item Clasificación de polaridad.
+            \item Tarea conjunta (la usada en el estudio).
+        \end{itemize}
+        \item Modelos evaluados:
+        \begin{itemize}
+            \item GPT-3.5 (sin ajustar)
+            \item GPT-3.5 \textbf{fine-tuned}
+            \item GPT-4
+            \item Modelo especializado \textbf{InstructABSA}
+        \end{itemize}
+        \item Se han probado 9 prompts distintos y 0–10 ejemplos en contexto.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Resultados: Diseño de Prompts}
+    \framesubtitle{Impacto del prompt y del número de ejemplos}
+    \begin{itemize}
+        \item El mejor prompt sin entrenamiento fue \textbf{Guidelines summary}.
+        \item Añadir ejemplos mejora marginalmente el rendimiento.
+        \item Usar 6 ejemplos funciona mejor que usar 10 (los casos difíciles añaden ruido).
+        \item Los LLMs muestran alta sensibilidad al diseño del prompt en ABSA.
+    \end{itemize}
+\end{frame}
+
+% -----------------------------
+% IMAGEN 1: DINÁMICA ENTRENAMIENTO
+% -----------------------------
+\begin{frame}
+    \frametitle{Fine-Tuning: Dinámica del Entrenamiento}
+    \framesubtitle{Evolución del modelo ajustado}
+
+    \centering
+    \includegraphics[width=0.90\textwidth]{img_3_1.png}
+
+    \vspace{0.2cm}
+    {\footnotesize Curvas de entrenamiento y validación del GPT-3.5 fine-tuned.\par}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fine-Tuning: Resultados Numéricos}
+    \framesubtitle{GPT-3.5 ajustado supera el estado del arte}
+    \begin{itemize}
+        \item GPT-3.5 fine-tuned logra un \textbf{F1 = 83.8}, superando:
+        \begin{itemize}
+            \item a GPT-4 zero/few-shot
+            \item y al modelo especializado InstructABSA (+5.7 puntos)
+        \end{itemize}
+        \item El modelo ajustado:
+        \begin{itemize}
+            \item No necesita JSON schema.
+            \item No necesita prompts largos.
+            \item Es mucho más robusto que la versión sin entrenamiento.
+        \end{itemize}
+        \item Conclusión clave: \textbf{fine-tuning $>$ prompt engineering}.
+    \end{itemize}
+\end{frame}
+
+% -----------------------------
+% IMAGEN 2: COMPARACIÓN DE MODELOS
+% -----------------------------
+\begin{frame}
+    \frametitle{Comparación de Modelos}
+    \framesubtitle{Rendimiento con diferentes números de ejemplos}
+
+    \centering
+    \includegraphics[width=0.93\textwidth]{img_5_2.png}
+
+    \vspace{0.2cm}
+    {\footnotesize Comparación del rendimiento entre GPT-3.5, GPT-3.5 fine-tuned, GPT-4 e InstructABSA.\par}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Análisis de Errores}
+    \framesubtitle{¿En qué fallan los LLMs?}
+    \begin{itemize}
+        \item Tipos de errores encontrados:
+        \begin{enumerate}
+            \item Aspectos no presentes en el gold set.
+            \item Polaridad incorrecta.
+            \item Límites erróneos del término.
+            \item Términos inventados.
+        \end{enumerate}
+        \item Tras el fine-tuning:
+        \begin{itemize}
+            \item Los errores de tipo “aspecto no válido” se reducen un \textbf{88\%}.
+            \item Los términos inventados prácticamente desaparecen.
+        \end{itemize}
+        \item Los errores restantes reflejan sobre todo las \textbf{restricciones del dataset SemEval}. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Análisis Económico}
+    \framesubtitle{Coste vs. rendimiento}
+    \begin{itemize}
+        \item GPT-4 es el modelo más caro y menos eficiente por dólar.
+        \item GPT-3.5 fine-tuned es el más eficiente dentro de los GPT.
+        \item InstructABSA es extremadamente barato y competitivo.
+        \item Conclusión práctica:
+        \begin{itemize}
+            \item Si hay datos etiquetados → \textbf{conviene fine-tuning}.
+            \item Si no hay datos → \textbf{usar GPT-4 zero/few-shot}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Conclusiones del Artículo}
+    \framesubtitle{Implicaciones para el uso de LLMs en ABSA}
+    \begin{itemize}
+        \item Los LLMs pueden realizar ABSA, pero con variabilidad según el prompt.
+        \item El mejor rendimiento se logra con \textbf{GPT-3.5 fine-tuned}.
+        \item El fine-tuning reduce la sensibilidad al prompt y produce salidas más limpias.
+        \item Los modelos pequeños siguen siendo superiores en coste.
+        \item En general:  
+        \textbf{Modelos grandes + fine-tuning → máximo rendimiento.}  
+        \textbf{Modelos pequeños especializados → máxima eficiencia.}
+    \end{itemize}
+\end{frame}
 	
 	% SECCIÓN 3
 	\section{Comparative Analysis of Deep Natural Networks and Large Language Models for Aspect-Based Sentiment Analysis}
